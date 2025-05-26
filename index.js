@@ -1,24 +1,24 @@
-const express = require("express");
-const axios = require("axios");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
+import axios from "axios";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(cors());
 
+const PORT = process.env.PORT || 3000;
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const PLACE_ID = process.env.PLACE_ID;
 
-app.use(cors());
-
 app.get("/avaliacoes", async (req, res) => {
   try {
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=reviews,rating&key=${GOOGLE_API_KEY}`;
-    const response = await axios.get(url);
-    const reviews = response.data.result.reviews;
+    const response = await axios.get(
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=reviews&key=${GOOGLE_API_KEY}`
+    );
+    const reviews = response.data.result.reviews || [];
     res.json(reviews);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Erro ao obter avaliações do Google");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Erro ao obter avaliações do Google" });
   }
 });
 
