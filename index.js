@@ -23,5 +23,5 @@ app.get("/avaliacoes", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+console.log(`🚀 SERVIDOR ATUALIZADO rodando na porta ${PORT}`);
 });
