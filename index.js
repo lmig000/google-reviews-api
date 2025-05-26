@@ -3,7 +3,7 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
-const PORT = 10000;
+const PORT = process.env.PORT || 3000;
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const PLACE_ID = process.env.PLACE_ID;
