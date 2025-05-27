@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
-  const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-  const PLACE_ID = process.env.PLACE_ID;
+  const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || "AIzaSyAEl2vqpv7Z4_R275lzoUOh4E5T0Fxgeos";
+  const PLACE_ID = process.env.PLACE_ID || "ChIJ9afzi36LJA0RpJRZw7VCoaU";
 
   if (!GOOGLE_API_KEY || !PLACE_ID) {
     return res.status(500).json({ error: "Chave da API ou Place ID não configurados" });
