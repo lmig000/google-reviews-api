@@ -22,6 +22,10 @@ app.get("/avaliacoes", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("API online");
+});
+
 app.listen(PORT, () => {
 console.log(`🚀 SERVIDOR ATUALIZADO rodando na porta ${PORT}`);
 });
