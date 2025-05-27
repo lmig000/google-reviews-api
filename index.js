@@ -13,6 +13,12 @@ console.log("Iniciando servidor...");
 console.log("GOOGLE_API_KEY:", GOOGLE_API_KEY ? "Configurada" : "Não configurada");
 console.log("PLACE_ID:", PLACE_ID ? PLACE_ID : "Não configurado");
 
+// Rota de teste temporária
+app.get("/teste", (req, res) => {
+  console.log("Requisição recebida para /teste");
+  res.json({ message: "Rota de teste funcionando!" });
+});
+
 app.get("/avaliacoes", async (req, res) => {
   console.log("Requisição recebida para /avaliacoes");
 
