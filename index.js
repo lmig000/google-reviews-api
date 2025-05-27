@@ -26,6 +26,6 @@ app.get("/", (req, res) => {
   res.send("API online");
 });
 
-app.listen(PORT, () => {
-console.log(`🚀 SERVIDOR ATUALIZADO rodando na porta ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 SERVIDOR ATUALIZADO rodando na porta ${PORT}`);
 });
